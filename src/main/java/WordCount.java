@@ -53,15 +53,15 @@ public class WordCount {
         job.setReducerClass(IntSumReducer.class);
         job.setOutputKeyClass(Text.class);
         job.setOutputValueClass(IntWritable.class);
-        conf.set("hadoop.job.ugi","root");
+        /*conf.set("hadoop.job.ugi","root");
         conf.set("fs.default.name","hdfs://75.73.199.231:9000");
-        conf.set("mapred.job.tracker","75.73.199.231:9001");
+        conf.set("mapred.job.tracker","75.73.199.231:9001");*/
         /*conf.addResource(new Path("/usr/local/hadoop-2.5.1/etc/hadoop/core-site.xml"));
         conf.addResource(new Path("/usr/local/hadoop-2.5.1/etc/hadoop/hdfs-site.xml"));*/
         FileInputFormat.addInputPaths(job, "hdfs://75.73.199.231:9000/sample1");
         //FileInputFormat.addInputPaths(job, "hdfs://localhost:9000/sample1");
         //FileOutputFormat.setOutputPath(job, new Path("hdfs://localhost:9000/Output1"));
-        FileOutputFormat.setOutputPath(job, new Path("hdfs://75.73.199.231:9000/Output2"));
+        FileOutputFormat.setOutputPath(job, new Path("hdfs://75.73.199.231:9000/Output4"));
         System.exit(job.waitForCompletion(true) ? 0 : 1);
     }
 }
