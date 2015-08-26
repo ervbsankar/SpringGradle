@@ -1,23 +1,23 @@
 apply plugin: 'java'
+apply plugin: 'groovy'
 apply plugin: 'war'
 
-sourceCompatibility = 1.5
+sourceCompatibility = 1.8
 version = '1.0'
-tomcatVersion = '7.0.61'
 
 repositories {
     mavenCentral()
+    mavenLocal()
 }
 
 dependencies {
     testCompile group: 'junit', name: 'junit', version: '4.11'
+    compile 'org.codehaus.groovy:groovy-all:2.3.10'
     compile 'org.springframework:spring-core:4.1.6.RELEASE'
     compile 'org.springframework:spring-context:4.1.6.RELEASE'
     compile 'org.springframework:spring-webmvc:4.1.6.RELEASE'
+    compile 'org.apache.hadoop:hadoop-hdfs:2.7.1'
+    compile 'org.apache.hadoop:hadoop-common:2.7.1'
+    compile 'org.apache.hadoop:hadoop-mapreduce-client-common:2.7.1'
 
-    compile project(':embedded'),
-            "org.apache.tomcat:tomcat-catalina:${tomcatVersion}",
-            "org.apache.tomcat:tomcat-coyote:${tomcatVersion}",
-            "org.apache.tomcat:tomcat-jasper:${tomcatVersion}"
-    testCompile project(path: ':embedded', configuration: 'integTestFixtures')
 }
